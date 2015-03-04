@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Parallax Scroll - Jquery plugin</title>
+	<style>
+		body {
+			text-align: center;
+			height: 2000px;
+			background: url('img/ruler.png') no-repeat top left;
+		}
+		div {
+			display: inline-block;
+		}
+		#demo1 {
+			margin: 200px 0;
+			width: 200px;
+			height: 200px;
+			background: #ccc;
+		}
+		#demo2 {
+			margin: 200px 0 0 50px;
+			width: 200px;
+			height: 200px;
+			background: #ff0;
+		}
+		#demo3 {
+			width: 200px;
+			height: 200px;
+			background: #0f0;
+		}
+		#demo4 {
+			width: 200px;
+			height: 200px;
+			background: #00f;
+			margin-left: -500px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="demo1" data-parallax='{"y":200}'>{"y":200}</div>
+	<br/>
+	<div id="demo2" data-parallax='{"y":-200}'>{y:-200}</div>
+	<br/>
+	<div id="demo3" data-parallax='{"z":-200}'>{z:-200}</div>
+	<br/>
+	<div id="demo4" data-parallax='{"x":1000}'>{x:1000}</div>
+	<script src="js/jquery-2.1.3.min.js"></script>
+	<script src="js/jquery.parallax-scroll.js"></script>
+</body>
+</html>
