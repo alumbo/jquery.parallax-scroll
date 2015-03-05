@@ -5,7 +5,7 @@ var ParallaxScroll = {
     /* PUBLIC VARIABLES */
     showLogs: false,
     $scrollList: null,
-    round: 1000,
+    round: 10000,
     _requestAnimationFrame:null,
 
     /* PUBLIC FUNCTIONS */
