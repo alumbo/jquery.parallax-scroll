@@ -2,7 +2,7 @@
 Smooth parallax effect on vertical page scrolling
 
 <h2>Browser Support</h2>
-Chrome 30+, Firefox 35+, IE10+
+Chrome 30+, Firefox 34+, Safari 7.1+, IE 10+
 
 <h2>How to use</h2>
 Insert the script in your page, nothing more to do.<br/>

@@ -6,6 +6,7 @@ var ParallaxScroll = {
     showLogs: false,
     $scrollList: null,
     round: 1000,
+    _requestAnimationFrame:null,
 
     /* PUBLIC FUNCTIONS */
     init: function() {
@@ -15,6 +16,16 @@ var ParallaxScroll = {
             this._inited = true;
             return;
         }
+        this._requestAnimationFrame = (function(){
+          return  window.requestAnimationFrame       || 
+                  window.webkitRequestAnimationFrame || 
+                  window.mozRequestAnimationFrame    || 
+                  window.oRequestAnimationFrame      || 
+                  window.msRequestAnimationFrame     || 
+                  function(/* function */ callback, /* DOMElement */ element){
+                      window.setTimeout(callback, 1000 / 60);
+                  };
+        })();
         this._onScroll(true);
     },
 
@@ -75,6 +86,6 @@ var ParallaxScroll = {
                 $el.attr("style", "transform:" + translate3d + "; -webkit-transform:" + translate3d);
             }
         }, this));
-        window.requestAnimationFrame($.proxy(this._onScroll, this, false));
+        this._requestAnimationFrame($.proxy(this._onScroll, this, false));
     }
 }
