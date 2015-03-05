@@ -5,16 +5,16 @@
 	<title>Parallax Scroll - Jquery plugin</title>
 	<style>
 		body {
-			height: 10000px;
+			height: 2500px;
 			background: #000;
 			overflow-x:hidden;
 		}
 		div {
 			position: absolute;
 			background: #fff;
-			width: 5px;
-			height: 5px;
-			border-radius: 5px;
+			width: 4px;
+			height: 4px;
+			border-radius: 4px;
 		}
 	</style>
 </head>
@@ -25,13 +25,15 @@
 	<script>
 		$(function(){
 			var windowWidth = $(window).width();
-			for(var i=0; i<100; i++) {
-				var top = Math.random()*10000;
-				var left = Math.random()*windowWidth;
-				var x = Math.random()*1000-500;
-				var y = Math.random()*1000-500;
-				var z = Math.random()*800-500;
-				$("body").append('<div style="top:' + top + 'px; left:' + left + 'px;" data-parallax=\'{"x":' + x + ',"y":' + y + ',"z":' + z + '}\'></div>');
+			for(var i=0; i<150; i++) {
+				var top = Math.random()*2200 - 50;
+				var left = Math.random()*(windowWidth+50) - 50;
+				var x = Math.random()*2000-1000;
+				var y = Math.random()*2000-1000;
+				var z = Math.random()*1000-1000;
+				var fromScroll = Math.max(0, top - 200 - Math.random()*800);
+				var distance = 200+Math.random()*100;
+				$("body").append('<div style="top:' + top + 'px; left:' + left + 'px;" data-parallax=\'{"x":' + x + ',"y":' + y + ',"z":' + z + ',"from-scroll":' + fromScroll + ',"distance":' + distance + '}\'></div>');
 			}
 		});
 	</script>

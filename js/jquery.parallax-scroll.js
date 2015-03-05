@@ -47,7 +47,7 @@ var ParallaxScroll = {
             var data = $el.data("parallax");
             var style = $el.data("style");
             if (style == undefined) {
-                style = $el.attr("style")||"";
+                style = $el.attr("style") || "";
                 $el.data("style", style);
             }
             var scrollFrom = data["from-scroll"];
@@ -86,11 +86,11 @@ var ParallaxScroll = {
 	                var perspective = data["perspective"];
 	                if (perspective == undefined) perspective = 800;
                     var $parent = $el.parent();
-                    if(!$parent.data("style")) $parent.data("style", $parent.attr("style")||"");
-                    $parent.attr("style", "perspective:" + perspective + "px; -webkit-perspective:" + perspective + "px; "+$parent.data("style"));
+                    if(!$parent.data("style")) $parent.data("style", $parent.attr("style") || "");
+                    $parent.attr("style", "perspective:" + perspective + "px; -webkit-perspective:" + perspective + "px; "+ $parent.data("style"));
                 }
                 var translate3d = "translate3d(" + (properties["x"] ? properties["x"] : 0) + "px, " + (properties["y"] ? properties["y"] : 0) + "px, " + (properties["z"] ? properties["z"] : 0) + "px);";
-                $el.attr("style", "transform:" + translate3d + "; -webkit-transform:" + translate3d+"; "+style);
+                $el.attr("style", "transform:" + translate3d + "; -webkit-transform:" + translate3d + style);
             }
         }, this));
         if(window.requestAnimationFrame) {
