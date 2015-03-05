@@ -12,7 +12,7 @@ Add the attribute 'data-parallax' to the dom elements you want with a <a href="h
 <ul>
 	<li><em>from-scroll</em> : vertical scroll position the animation starts (default: when the element is visible)</li>
 	<li><em>distance</em> : distance on vertical scroll position the animation will last (default: the window visible height)</li>
-	<li><em>to-scroll</em> : vertical scroll position the animation ends (default: <em>from-scroll</em>+<em>to-scroll</em>)</li>
+	<li><em>to-scroll</em> : vertical scroll position the animation ends (default: <em>from-scroll</em> + <em>distance</em>)</li>
 	<li><em>smoothness</em> : factor that slowdown the animation, the more the smoothier (default: 30)</li>
 	<li><em>perspective</em> : 3d perspective applied on parent element in case of z axe use (default: 800)</li>
 </ul>
