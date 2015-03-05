@@ -19,9 +19,9 @@ Add the attribute 'data-parallax' to the dom elements you want with a <a href="h
 
 <h2>Properties</h2>
 <ul>
-	<li><em>x</em> : x axe position (pixel)</li>
-	<li><em>y</em> : y axe position (pixel)</li>
-	<li><em>z</em> : z axe position (pixel)</li>
+	<li><em>x</em> : x axe position (pixels)</li>
+	<li><em>y</em> : y axe position (pixels)</li>
+	<li><em>z</em> : z axe position (pixels)</li>
 </ul>
 
 <a href="http://free.matthieu.com/jquery.parallax-scroll/demo.html" target="_blank">Demo</a>
