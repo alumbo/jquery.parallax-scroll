@@ -86,6 +86,11 @@ var ParallaxScroll = {
                 $el.attr("style", "transform:" + translate3d + "; -webkit-transform:" + translate3d);
             }
         }, this));
-        this._requestAnimationFrame($.proxy(this._onScroll, this, false));
+        if(window.requestAnimationFrame) {
+            window.requestAnimationFrame($.proxy(this._onScroll, this, false));
+        }
+        else {
+            this._requestAnimationFrame($.proxy(this._onScroll, this, false));
+        }
     }
 }
