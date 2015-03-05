@@ -3,7 +3,7 @@ $(function(){
 });
 var ParallaxScroll = {
 	/* PUBLIC VARIABLES */
-	showLogs:true,
+	showLogs:false,
 	$scrollList:null,
 	round:1000,
 
