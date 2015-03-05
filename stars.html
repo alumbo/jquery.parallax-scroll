@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Parallax Scroll - Jquery plugin</title>
+	<style>
+		body {
+			height: 10000px;
+			background: #000;
+			overflow-x:hidden;
+		}
+		div {
+			position: absolute;
+			background: #fff;
+			width: 5px;
+			height: 5px;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+
+<body>
+	<script src="js/jquery-2.1.3.min.js"></script>
+	<script src="js/jquery.parallax-scroll.js"></script>
+	<script>
+		$(function(){
+			var windowWidth = $(window).width();
+			for(var i=0; i<100; i++) {
+				var top = Math.random()*10000;
+				var left = Math.random()*windowWidth;
+				var x = Math.random()*1000-500;
+				var y = Math.random()*1000-500;
+				var z = Math.random()*800-500;
+				$("body").append('<div style="top:' + top + 'px; left:' + left + 'px;" data-parallax=\'{"x":' + x + ',"y":' + y + ',"z":' + z + '}\'></div>');
+			}
+		});
+	</script>
+</body>
+</html>
