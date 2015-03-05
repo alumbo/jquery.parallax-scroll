@@ -2,11 +2,11 @@
 Smooth parallax effect on vertical page scrolling
 
 <h2>Browser Support</h2>
-Chrome 30+ (more browsers to come in further revisions)
+Chrome 30+, Firefox 35+, IE10+
 
 <h2>How to use</h2>
 Insert the script in your page, nothing more to do.<br/>
-Add the attribute 'data-parallax' to the dom elements you want with a <a href="http://en.wikipedia.org/wiki/JSON#Data_types.2C_syntax_and_example">json syntax</a> that contains optionnals parameters and properties you want change.
+Add the attribute 'data-parallax' to the dom elements you want with a <a href="http://en.wikipedia.org/wiki/JSON#Data_types.2C_syntax_and_example" target="_blank">json syntax</a> that contains optionnals parameters and properties you want animate.
 
 <h2>Parameters</h2>
 <ul>
@@ -14,6 +14,7 @@ Add the attribute 'data-parallax' to the dom elements you want with a <a href="h
 	<li><em>distance</em> : distance on vertical scroll position the animation will last (default: the window visible height)</li>
 	<li><em>to-scroll</em> : vertical scroll position the animation ends (default: <em>from-scroll</em>+<em>to-scroll</em>)</li>
 	<li><em>smoothness</em> : factor that slowdown the animation, the more the smoothier (default: 30)</li>
+	<li><em>perspective</em> : 3d perspective applied on parent element in case of z axe use (default: 800)</li>
 </ul>
 
 <h2>Properties</h2>
@@ -23,4 +24,4 @@ Add the attribute 'data-parallax' to the dom elements you want with a <a href="h
 	<li><em>z</em> : z axe position (pixel)</li>
 </ul>
 
-<a href="http://free.matthieu.com/jquery.parallax-scroll/demo.html">Demo</a>
+<a href="http://free.matthieu.com/jquery.parallax-scroll/demo.html" target="_blank">Demo</a>
