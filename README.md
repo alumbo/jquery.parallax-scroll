@@ -29,7 +29,7 @@ Add the attribute 'data-parallax' to the dom elements you want with a <a href="h
 
 <h2>Examples</h2>
 <p>
-	Move up the image by 230 pixels while vertical scrolling from when it shows up on screen to the window height distance scroll position:<br/>
+	Move down the image by 230 pixels while vertical scrolling from when it shows up on screen bottom to when it disappears on screen top:<br/>
 	<code>&lt;img src="img/paris.jpg" alt="Paris" data-parallax='{"y":230}'/&gt;</code>
 </p>
 <p>
