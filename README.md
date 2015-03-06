@@ -28,9 +28,18 @@ Add the attribute 'data-parallax' to the dom elements you want with a <a href="h
 </ul>
 
 <h2>Examples</h2>
-<code>&lt;img src="img/paris.jpg" alt="Paris" data-parallax='{"y":230}'/&gt;</code><br/>
-<code>&lt;li data-parallax='{"x":750,"from-scroll":50,"distance":0,"smoothness":10}'&gt;1&lt;/li&gt;</code><br/>
-<code>&lt;p data-parallax='{"rotateX":1000}'&gt;!&lt;/p&gt;</code>
+<p>
+	Move up the image by 230 pixels while vertical scrolling from when it shows up on screen to the window height distance scroll position:<br/>
+	<code>&lt;img src="img/paris.jpg" alt="Paris" data-parallax='{"y":230}'/&gt;</code>
+</p>
+<p>
+	Translation to the right by 750 pixels while vertical scrolling at 50 pixels scroll top position with a lower smoothness effect:<br/>
+	<code>&lt;li data-parallax='{"x":750,"from-scroll":50,"distance":0,"smoothness":10}'&gt;1&lt;/li&gt;</code>
+</p>
+<p>
+	Rotate by 1000 degrees along the X axis from when the exclamation point shows up to the window height distance scroll position:<br/>
+	<code>&lt;p data-parallax='{"rotateX":1000}'&gt;!&lt;/p&gt;</code>
+</p>
 
 <h3><a href="http://free.matthieu.com/jquery.parallax-scroll/demo.html" target="_blank">Demo</a></h3>
 <p><a href="http://free.matthieu.com/jquery.parallax-scroll/stars.html" target="_blank">Bonus test with 100 stars</a></p>
