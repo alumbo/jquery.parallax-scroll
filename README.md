@@ -1,11 +1,11 @@
 # jquery.parallax-scroll
-Smooth parallax animations on vertical page scrolling using CSS3 3D transitions.
+Smooth parallax animations on vertical page scrolling using requestAnimationFrame and CSS3 3D transitions.
 
 <h2>Browser Support</h2>
 Chrome 30+, Firefox 34+, Safari 7.1+, IE 10+
 
 <h2>How to use</h2>
-Insert the script in your page, nothing more to do.<br/>
+Insert the script <em>jquery.parallax-scroll.js</em> in your page after jQuery, there is no more javascript code needed.<br/>
 Add the attribute 'data-parallax' to the dom elements you want with a <a href="http://en.wikipedia.org/wiki/JSON#Data_types.2C_syntax_and_example" target="_blank">json syntax</a> that contains optionnals parameters and properties you want animate.
 
 <h2>Parameters</h2>
@@ -23,6 +23,10 @@ Add the attribute 'data-parallax' to the dom elements you want with a <a href="h
 	<li><em>y</em> : y axe position (pixels)</li>
 	<li><em>z</em> : z axe position (pixels)</li>
 </ul>
+
+<h2>Examples</h2>
+<code><img src="img/paris.jpg" alt="Paris" data-parallax='{"y":230}'/></code>
+<code><li data-parallax='{"x":750,"from-scroll":50,"distance":0,"smoothness":10}'>1</li></code>
 
 <h3><a href="http://free.matthieu.com/jquery.parallax-scroll/demo.html" target="_blank">Demo</a></h3>
 <p><a href="http://free.matthieu.com/jquery.parallax-scroll/stars.html" target="_blank">Bonus test with 100 stars</a></p>
