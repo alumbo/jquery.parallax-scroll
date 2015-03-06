@@ -1,5 +1,5 @@
 # jquery.parallax-scroll
-Smooth parallax effect on vertical page scrolling
+Smooth parallax animations on vertical page scrolling using CSS3 3D transitions.
 
 <h2>Browser Support</h2>
 Chrome 30+, Firefox 34+, Safari 7.1+, IE 10+
