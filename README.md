@@ -33,11 +33,11 @@ Add the attribute 'data-parallax' to the dom elements you want with a <a href="h
 	<code>&lt;img src="img/paris.jpg" alt="Paris" data-parallax='{"y":230}'/&gt;</code>
 </p>
 <p>
-	Translation to the right by 750 pixels while vertical scrolling at 50 pixels scroll top position with a lower smoothness effect:<br/>
+	Translation to the right by 750 pixels with a lower smoothness effect when vertical scroll position is over 50 pixels:<br/>
 	<code>&lt;li data-parallax='{"x":750,"from-scroll":50,"distance":0,"smoothness":10}'&gt;1&lt;/li&gt;</code>
 </p>
 <p>
-	Rotate by 1000 degrees along the X axis from when the exclamation point shows up to the window height distance scroll position:<br/>
+	Rotation by 1000 degrees along the X axis from when the exclamation point shows up to the window height distance scroll position:<br/>
 	<code>&lt;p data-parallax='{"rotateX":1000}'&gt;!&lt;/p&gt;</code>
 </p>
 
