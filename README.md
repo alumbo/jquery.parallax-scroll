@@ -25,4 +25,4 @@ Add the attribute 'data-parallax' to the dom elements you want with a <a href="h
 </ul>
 
 <a href="http://free.matthieu.com/jquery.parallax-scroll/demo.html" target="_blank">Demo</a><br/><br/>
-<a href="http://free.matthieu.com/jquery.parallax-scroll/stars.html" target="_blank">Test with 100 stars</a>
+<small><a href="http://free.matthieu.com/jquery.parallax-scroll/stars.html" target="_blank">Bonus test with 100 stars</a></small>
