@@ -19,14 +19,18 @@ Add the attribute 'data-parallax' to the dom elements you want with a <a href="h
 
 <h2>Properties</h2>
 <ul>
-	<li><em>x</em> : x axe position (pixels)</li>
-	<li><em>y</em> : y axe position (pixels)</li>
-	<li><em>z</em> : z axe position (pixels)</li>
+	<li><em>x</em> : X axis translation (pixels)</li>
+	<li><em>y</em> : Y axis translation (pixels)</li>
+	<li><em>z</em> : Z axis translation (pixels)</li>
+	<li><em>rotateX</em> : X axis rotation (degrees)</li>
+	<li><em>rotateY</em> : Y axis rotation (degrees)</li>
+	<li><em>rotateZ</em> : Z axis rotation (degrees)</li>
 </ul>
 
 <h2>Examples</h2>
 <code>&lt;img src="img/paris.jpg" alt="Paris" data-parallax='{"y":230}'/&gt;</code><br/>
 <code>&lt;li data-parallax='{"x":750,"from-scroll":50,"distance":0,"smoothness":10}'&gt;1&lt;/li&gt;</code>
+<code>&lt;p data-parallax='{"rotateX":1000}'&gt;!&lt;/p&gt;</code>
 
 <h3><a href="http://free.matthieu.com/jquery.parallax-scroll/demo.html" target="_blank">Demo</a></h3>
 <p><a href="http://free.matthieu.com/jquery.parallax-scroll/stars.html" target="_blank">Bonus test with 100 stars</a></p>

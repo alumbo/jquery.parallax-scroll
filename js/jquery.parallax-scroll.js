@@ -30,7 +30,7 @@ var ParallaxScroll = {
 
     /* PRIVATE VARIABLES */
     _inited: false,
-    _properties: ['x', 'y', 'z'],
+    _properties: ['x', 'y', 'z', 'rotateX', 'rotateY', 'rotateZ'],
     _requestAnimationFrame:null,
 
     /* PRIVATE FUNCTIONS */
@@ -66,6 +66,7 @@ var ParallaxScroll = {
             var scrollCurrent = scroll;
             scrollCurrent = Math.max(scrollCurrent, scrollFrom);
             scrollCurrent = Math.min(scrollCurrent, scrollTo);
+            var applyProperties = false;
             this._properties.map($.proxy(function(prop) {
                 var to = data[prop];
                 if (to == undefined) return;
@@ -79,18 +80,22 @@ var ParallaxScroll = {
                 if (prev != val) {
                     properties[prop] = val;
                     $el.data("_" + prop, val);
+                    applyProperties = true;
                 }
             }, this));
-            if (properties["x"] != undefined || properties["y"] != undefined || properties["z"] != undefined) {
+            if (applyProperties) {
                 if (properties["z"] != undefined) {
-	                var perspective = data["perspective"];
-	                if (perspective == undefined) perspective = 800;
+                    var perspective = data["perspective"];
+                    if (perspective == undefined) perspective = 800;
                     var $parent = $el.parent();
                     if(!$parent.data("style")) $parent.data("style", $parent.attr("style") || "");
                     $parent.attr("style", "perspective:" + perspective + "px; -webkit-perspective:" + perspective + "px; "+ $parent.data("style"));
                 }
-                var translate3d = "translate3d(" + (properties["x"] ? properties["x"] : 0) + "px, " + (properties["y"] ? properties["y"] : 0) + "px, " + (properties["z"] ? properties["z"] : 0) + "px);";
-                $el.attr("style", "transform:" + translate3d + " -webkit-transform:" + translate3d + style);
+                var translate3d = "translate3d(" + (properties["x"] ? properties["x"] : 0) + "px, " + (properties["y"] ? properties["y"] : 0) + "px, " + (properties["z"] ? properties["z"] : 0) + "px)";
+                var rotate3d = "rotateX(" + (properties["rotateX"] ? properties["rotateX"] : 0) + "deg) rotateY(" + (properties["rotateY"] ? properties["rotateY"] : 0) + "deg) rotateZ(" + (properties["rotateZ"] ? properties["rotateZ"] : 0) + "deg)";
+                var cssTransform = translate3d + " " + rotate3d + ";";
+                this._log(cssTransform);
+                $el.attr("style", "transform:" + cssTransform + " -webkit-transform:" + cssTransform + " " + style);
             }
         }, this));
         if(window.requestAnimationFrame) {
