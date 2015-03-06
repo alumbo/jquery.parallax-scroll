@@ -3,49 +3,111 @@
 <head>
 	<meta charset="utf-8">
 	<title>Parallax Scroll - Jquery plugin</title>
+	<link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
 	<style>
 		body {
+			font-family: 'Quicksand', sans-serif;
+			margin: 0;
+		}
+		section {
+			width: 1200px;
+			height: 3000px;
+			margin: auto;
+			background: #e7e2dd;
 			text-align: center;
-			height: 2000px;
-			background: url('img/ruler.png') no-repeat top left;
 		}
-		div {
+		header {
+			position: relative;
+			background: #000;
+			color:#fff;
+			padding: 80px 0;
+			font-size: 2em;
+		}
+		.github {
+			background: #fff;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			width: 100px;
+		}
+		ul {
+			text-align: left;
+			margin-top: 120px;
+		}
+		ul.letters {
+			text-align: right;
+			width: 1100px;
+		}
+		li {
 			display: inline-block;
+			list-style: none;
+			width: 60px;
+			height: 45px;
+			border-radius: 60px;
+			background: #fff;
+			text-align: center;
+			padding-top: 15px;
+			font-size: 24px;
+			margin: 15px;
 		}
-		#demo1 {
-			margin: 200px 0;
-			width: 200px;
-			height: 200px;
-			background: #ccc;
+		article {
+			position: relative;
+			width: 100%;
+			height: 370px;
+			margin-top: 400px;
+			overflow: hidden;
+			border-top: 4px solid #fff;
+			border-bottom: 4px solid #fff;
 		}
-		#demo2 {
-			margin: 200px 0 0 50px;
-			width: 200px;
-			height: 200px;
-			background: #ff0;
+		article img {
+			position: absolute;
+			bottom:0;
+			left: 0;
 		}
-		#demo3 {
-			width: 200px;
-			height: 200px;
-			background: #0f0;
+		article p {
+			position: absolute;
+			width: 100%;
+			margin-top: 120px;
+			text-transform: uppercase;
+			color: #fff;
+			font-size: 6em;
 		}
-		#demo4 {
-			width: 200px;
-			height: 200px;
-			background: #00f;
-			margin-left: -500px;
+		div.yeah {
+			color: #333;
+			font-size: 8em;
+			letter-spacing: 20px;
+			margin-top: 500px;
+		}
+		div.yeah p {
+			display: inline-block;
 		}
 	</style>
 </head>
 
 <body>
-	<div id="demo1" data-parallax='{"y":300}'>{"y":300}</div>
-	<br/>
-	<div id="demo2" data-parallax='{"y":-200}'>{"y":-200}</div>
-	<br/>
-	<div id="demo3" data-parallax='{"z":-300}'>{"z":-300}</div>
-	<br/>
-	<div id="demo4" data-parallax='{"x":1000}'>{"x":1000}</div>
+	<section>
+		<header>
+			<h1>jquery.parallax-scroll demo</h1>
+			<a href="https://github.com/alumbo/jquery.parallax-scroll"><img class="github" src="img/GitHub_Logo.png" alt="GitHub"/></a>
+		</header>
+		<ul>
+			<li data-parallax='{"x":750,"from-scroll":50,"distance":30,"smoothness":10}'>1</li>
+			<li data-parallax='{"x":750,"from-scroll":70,"distance":30,"smoothness":20}'>2</li>
+			<li data-parallax='{"x":750,"from-scroll":90,"distance":30}'>3</li>
+			<li data-parallax='{"x":750,"from-scroll":110,"distance":30,"smoothness":40}'>4</li>
+		</ul>
+		<ul class="letters">
+			<li data-parallax='{"x":-750,"from-scroll":80,"distance":30}'>A</li>
+			<li data-parallax='{"x":-750,"from-scroll":100,"distance":60}'>B</li>
+			<li data-parallax='{"x":-750,"from-scroll":120,"distance":90}'>C</li>
+			<li data-parallax='{"x":-750,"from-scroll":140,"distance":120}'>D</li>
+		</ul>
+		<article>
+			<img src="img/paris.jpg" alt="Paris" data-parallax='{"y":230}'/>
+			<p>Paris est magique</p>
+		</article>
+		<div class="yeah"><p data-parallax='{"z":-600}'>Y</p><p data-parallax='{"z":-500}'>e</p><p data-parallax='{"z":-400}'>a</p><p data-parallax='{"z":-300}'>a</p><p data-parallax='{"z":-200}'>a</p><p data-parallax='{"z":-100}'>h</p><p>!</p></div>
+	</section>
 	<script src="js/jquery-2.1.3.min.js"></script>
 	<script src="js/jquery.parallax-scroll.js"></script>
 </body>

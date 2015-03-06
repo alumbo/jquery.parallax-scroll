@@ -5,7 +5,7 @@ var ParallaxScroll = {
     /* PUBLIC VARIABLES */
     showLogs: false,
     $scrollList: null,
-    round: 10000,
+    round: 100,
     _requestAnimationFrame:null,
 
     /* PUBLIC FUNCTIONS */
@@ -71,7 +71,7 @@ var ParallaxScroll = {
                 to = to | 0;
                 var prev = $el.data("_" + prop);
                 if (prev == undefined) prev = 0;
-                prev = prev | 0;
+                console.info("prev "+prev);
                 var next = to * ((scrollCurrent - scrollFrom) / (scrollTo - scrollFrom));
                 next = Math.floor(next * this.round) / this.round;
                 var val = prev + (next - prev) / smoothness;
@@ -90,7 +90,7 @@ var ParallaxScroll = {
                     $parent.attr("style", "perspective:" + perspective + "px; -webkit-perspective:" + perspective + "px; "+ $parent.data("style"));
                 }
                 var translate3d = "translate3d(" + (properties["x"] ? properties["x"] : 0) + "px, " + (properties["y"] ? properties["y"] : 0) + "px, " + (properties["z"] ? properties["z"] : 0) + "px);";
-                $el.attr("style", "transform:" + translate3d + "; -webkit-transform:" + translate3d + style);
+                $el.attr("style", "transform:" + translate3d + " -webkit-transform:" + translate3d + style);
             }
         }, this));
         if(window.requestAnimationFrame) {
