@@ -25,8 +25,8 @@ Add the attribute 'data-parallax' to the dom elements you want with a <a href="h
 </ul>
 
 <h2>Examples</h2>
-<code><img src="img/paris.jpg" alt="Paris" data-parallax='{"y":230}'/></code>
-<code><li data-parallax='{"x":750,"from-scroll":50,"distance":0,"smoothness":10}'>1</li></code>
+<code>&lt;img src="img/paris.jpg" alt="Paris" data-parallax='{"y":230}'/&gt;</code><br/>
+<code>&lt;li data-parallax='{"x":750,"from-scroll":50,"distance":0,"smoothness":10}'&gt;1&lt;/li&gt;</code>
 
 <h3><a href="http://free.matthieu.com/jquery.parallax-scroll/demo.html" target="_blank">Demo</a></h3>
 <p><a href="http://free.matthieu.com/jquery.parallax-scroll/stars.html" target="_blank">Bonus test with 100 stars</a></p>
