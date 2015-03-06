@@ -24,5 +24,5 @@ Add the attribute 'data-parallax' to the dom elements you want with a <a href="h
 	<li><em>z</em> : z axe position (pixels)</li>
 </ul>
 
-<a href="http://free.matthieu.com/jquery.parallax-scroll/demo.html" target="_blank">Demo</a><br/><br/>
-<small><a href="http://free.matthieu.com/jquery.parallax-scroll/stars.html" target="_blank">Bonus test with 100 stars</a></small>
+<h3><a href="http://free.matthieu.com/jquery.parallax-scroll/demo.html" target="_blank">Demo</a></h3>
+<p><a href="http://free.matthieu.com/jquery.parallax-scroll/stars.html" target="_blank">Bonus test with 100 stars</a></p>
