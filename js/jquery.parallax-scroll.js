@@ -56,6 +56,7 @@ var ParallaxScroll = {
             var scrollDistance = data["distance"];
             var scrollTo = data["to-scroll"];
             if (scrollDistance == undefined && scrollTo == undefined) scrollDistance = windowHeight;
+            scrollDistance = Math.max(scrollDistance|0,1);
             if (scrollTo == undefined) scrollTo = scrollFrom + scrollDistance;
             scrollTo = scrollTo | 0;
             var smoothness = data["smoothness"];
@@ -71,7 +72,6 @@ var ParallaxScroll = {
                 to = to | 0;
                 var prev = $el.data("_" + prop);
                 if (prev == undefined) prev = 0;
-                console.info("prev "+prev);
                 var next = to * ((scrollCurrent - scrollFrom) / (scrollTo - scrollFrom));
                 next = Math.floor(next * this.round) / this.round;
                 var val = prev + (next - prev) / smoothness;
