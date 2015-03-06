@@ -1,12 +1,11 @@
 $(function() {
     ParallaxScroll.init();
 });
+
 var ParallaxScroll = {
     /* PUBLIC VARIABLES */
     showLogs: false,
-    $scrollList: null,
     round: 100,
-    _requestAnimationFrame:null,
 
     /* PUBLIC FUNCTIONS */
     init: function() {
@@ -32,6 +31,7 @@ var ParallaxScroll = {
     /* PRIVATE VARIABLES */
     _inited: false,
     _properties: ['x', 'y', 'z'],
+    _requestAnimationFrame:null,
 
     /* PRIVATE FUNCTIONS */
     _log: function(message) {
