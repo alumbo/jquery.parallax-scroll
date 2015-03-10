@@ -30,6 +30,10 @@ Add the attribute 'data-parallax' to the dom elements you want with a <a href="h
 	<li><em>rotateX</em>: X axis rotation (degrees)</li>
 	<li><em>rotateY</em>: Y axis rotation (degrees)</li>
 	<li><em>rotateZ</em>: Z axis rotation (degrees)</li>
+	<li><em>scale</em>: Global scale (ratio)</li>
+	<li><em>scaleX</em>: X axis scale (ratio)</li>
+	<li><em>scaleY</em>: Y axis scale (ratio)</li>
+	<li><em>scaleZ</em>: Z axis scale (ratio)</li>
 </ul>
 
 <h2>Multiple animations</h2>

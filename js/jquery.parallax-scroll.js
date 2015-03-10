@@ -5,7 +5,7 @@ $(function() {
 var ParallaxScroll = {
     /* PUBLIC VARIABLES */
     showLogs: false,
-    round: 100,
+    round: 1000,
 
     /* PUBLIC FUNCTIONS */
     init: function() {
@@ -30,7 +30,7 @@ var ParallaxScroll = {
 
     /* PRIVATE VARIABLES */
     _inited: false,
-    _properties: ['x', 'y', 'z', 'rotateX', 'rotateY', 'rotateZ'],
+    _properties: ['x', 'y', 'z', 'rotateX', 'rotateY', 'rotateZ', 'scaleX', 'scaleY', 'scaleZ', 'scale'],
     _requestAnimationFrame:null,
 
     /* PRIVATE FUNCTIONS */
@@ -118,16 +118,21 @@ var ParallaxScroll = {
                     $el.data("current-time", currentTime);
                 }
                 this._properties.map($.proxy(function(prop) {
+                    var defaultProp = 0;
                     var to = data[prop];
                     if (to == undefined) return;
-                    to = to | 0;
+                    if(prop=="scale" || prop=="scaleX" || prop=="scaleY" || prop=="scaleZ" ) {
+                        defaultProp = 1;
+                    }
+                    else {
+                        to = to | 0;
+                    }
                     var prev = $el.data("_" + prop);
-                    if (prev == undefined) prev = 0;
-                    var next = to * ((scrollCurrent - scrollFrom) / (scrollTo - scrollFrom));
-                    next = Math.floor(next * this.round) / this.round;
+                    if (prev == undefined) prev = defaultProp;
+                    var next = ((to-defaultProp) * ((scrollCurrent - scrollFrom) / (scrollTo - scrollFrom))) + defaultProp;
                     var val = prev + (next - prev) / smoothness;
                     if(easing && currentTime>0 && currentTime<=totalTime) {
-                        var from = 0;
+                        var from = defaultProp;
                         if($el.data("sens") == "back") {
                             from = to;
                             to = -to;
@@ -136,7 +141,8 @@ var ParallaxScroll = {
                         }
                         val = $.easing[easing](null, currentTime, from, to, totalTime);
                     }
-                    val = (next > 0 ? Math.ceil : Math.floor)(val * this.round) / this.round;
+                    val = Math.ceil(val * this.round) / this.round;
+                    if(val==prev&&next==to) val = to;
                     if(!properties[prop]) properties[prop] = 0;
                     properties[prop] += val;
                     if (prev != properties[prop]) {
@@ -153,9 +159,18 @@ var ParallaxScroll = {
                     if(!$parent.data("style")) $parent.data("style", $parent.attr("style") || "");
                     $parent.attr("style", "perspective:" + perspective + "px; -webkit-perspective:" + perspective + "px; "+ $parent.data("style"));
                 }
+                if(properties["scaleX"] == undefined) properties["scaleX"] = 1;
+                if(properties["scaleY"] == undefined) properties["scaleY"] = 1;
+                if(properties["scaleZ"] == undefined) properties["scaleZ"] = 1;
+                if (properties["scale"] != undefined) {
+                    properties["scaleX"] *= properties["scale"];
+                    properties["scaleY"] *= properties["scale"];
+                    properties["scaleZ"] *= properties["scale"];
+                }
                 var translate3d = "translate3d(" + (properties["x"] ? properties["x"] : 0) + "px, " + (properties["y"] ? properties["y"] : 0) + "px, " + (properties["z"] ? properties["z"] : 0) + "px)";
                 var rotate3d = "rotateX(" + (properties["rotateX"] ? properties["rotateX"] : 0) + "deg) rotateY(" + (properties["rotateY"] ? properties["rotateY"] : 0) + "deg) rotateZ(" + (properties["rotateZ"] ? properties["rotateZ"] : 0) + "deg)";
-                var cssTransform = translate3d + " " + rotate3d + ";";
+                var scale3d = "scaleX(" + properties["scaleX"] + ") scaleY(" + properties["scaleY"] + ") scaleZ(" + properties["scaleZ"] + ")";
+                var cssTransform = translate3d + " " + rotate3d + " " + scale3d + ";";
                 this._log(cssTransform);
                 $el.attr("style", "transform:" + cssTransform + " -webkit-transform:" + cssTransform + " " + style);
             }
