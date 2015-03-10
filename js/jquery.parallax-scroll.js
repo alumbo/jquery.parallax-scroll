@@ -137,12 +137,12 @@ var ParallaxScroll = {
                         val = $.easing[easing](null, currentTime, from, to, totalTime);
                     }
                     val = (next > 0 ? Math.ceil : Math.floor)(val * this.round) / this.round;
-                    //if (prev != val) {
-                        if(!properties[prop]) properties[prop] = 0;
-                        properties[prop] += val;
+                    if(!properties[prop]) properties[prop] = 0;
+                    properties[prop] += val;
+                    if (prev != properties[prop]) {
                         $el.data("_" + prop, properties[prop]);
-                        if(prev != val) applyProperties = true;
-                   // }
+                        applyProperties = true;
+                    }
                 }, this));
             }
             if (applyProperties) {
