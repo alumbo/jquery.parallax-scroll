@@ -15,7 +15,7 @@ Add the attribute 'data-parallax' to the dom elements you want with a <a href="h
 	<li><em>to-scroll</em>: vertical scroll position the animation ends (default: <em>from-scroll</em> + <em>distance</em>)</li>
 	<li><em>smoothness</em>: factor that slowdown the animation, the more the smoothier (default: 30)</li>
 	<li><em>perspective</em>: 3d perspective applied on parent element in case of z axe use (default: 800)</li>
-	<li><em>easing</em>: <a href="http://gsgd.co.uk/sandbox/jquery/easing/" target="_blank"/>Easing function</a> used to animate (note that the duration parameter is needed, <em>distance</em> and <em>to-scroll</em> will be ignored) - <a href="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js" target="_blank"/>jquery.easing.1.3.js</a> is required to use the optionnal feature.</li>
+	<li><em>easing</em>: <a href="http://gsgd.co.uk/sandbox/jquery/easing/" target="_blank">Easing function</a> used to animate (note that the duration parameter is needed, <em>distance</em> and <em>to-scroll</em> will be ignored) - <a href="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js" target="_blank">jquery.easing.1.3.js</a> is required to use the optionnal feature.</li>
 	<li><em>duration</em>: Duration of the easing animation, will be ignore if there is no easing paramater specified (frames)
 </ul>
 

@@ -44,90 +44,102 @@ var ParallaxScroll = {
         $("[data-parallax]").each($.proxy(function(index, el) {
             var $el = $(el);
             var properties = [];
-            var data = $el.data("parallax");
+            var applyProperties = false;
             var style = $el.data("style");
             if (style == undefined) {
                 style = $el.attr("style") || "";
                 $el.data("style", style);
             }
-            var scrollFrom = data["from-scroll"];
-            if (scrollFrom == undefined) scrollFrom = Math.max(0, $(el).offset().top - windowHeight);
-            scrollFrom = scrollFrom | 0;
-            var scrollDistance = data["distance"];
-            var scrollTo = data["to-scroll"];
-            if (scrollDistance == undefined && scrollTo == undefined) scrollDistance = windowHeight;
-            scrollDistance = Math.max(scrollDistance | 0, 1);
-            var easing = data["easing"];
-            var easingReturn = data["easingReturn"];
-            if (easing == undefined || !$.easing|| !$.easing[easing]) easing = null;
-            if (easingReturn == undefined || !$.easing|| !$.easing[easingReturn]) easingReturn = easing;
-            if (easing) {
-                var totalTime = data["duration"];
-                if (totalTime == undefined) totalTime = scrollDistance;
-                totalTime = Math.max(totalTime | 0, 1);
-                scrollDistance = 1;
-                var currentTime = $el.data("current-time");
-                if(currentTime == undefined) currentTime = 0;
+            var datas = [$el.data("parallax")];
+            var iData;
+            for(iData = 2; iData<=10; iData++) {
+                if($el.data("parallax"+iData)) datas.push($el.data("parallax-"+iData));
             }
-            if (scrollTo == undefined) scrollTo = scrollFrom + scrollDistance;
-            scrollTo = scrollTo | 0;
-            var smoothness = data["smoothness"];
-            if (smoothness == undefined) smoothness = 30;
-            smoothness = smoothness | 0;
-            if (noSmooth || smoothness == 0) smoothness = 1;
-            smoothness = smoothness | 0;
-            var scrollCurrent = scroll;
-            scrollCurrent = Math.max(scrollCurrent, scrollFrom);
-            scrollCurrent = Math.min(scrollCurrent, scrollTo);
-            if(easing) {
-                if($el.data("sens") == undefined) $el.data("sens", "back");
-                if(scrollCurrent>scrollFrom) {
-                    if($el.data("sens") == "back") {
-                        currentTime = 1;
-                        $el.data("sens", "go");
-                    }
-                    else {
-                        currentTime++;
-                    }
+            var datasLength = datas.length;
+            for(iData = 0; iData < datasLength; iData ++) {
+                var data = datas[iData];
+                var scrollFrom = data["from-scroll"];
+                if (scrollFrom == undefined) scrollFrom = Math.max(0, $(el).offset().top - windowHeight);
+                scrollFrom = scrollFrom | 0;
+                var scrollDistance = data["distance"];
+                var scrollTo = data["to-scroll"];
+                if (scrollDistance == undefined && scrollTo == undefined) scrollDistance = windowHeight;
+                scrollDistance = Math.max(scrollDistance | 0, 1);
+                var easing = data["easing"];
+                var easingReturn = data["easing-return"];
+                if (easing == undefined || !$.easing|| !$.easing[easing]) easing = null;
+                if (easingReturn == undefined || !$.easing|| !$.easing[easingReturn]) easingReturn = easing;
+                if (easing) {
+                    var totalTime = data["duration"];
+                    if (totalTime == undefined) totalTime = scrollDistance;
+                    totalTime = Math.max(totalTime | 0, 1);
+                    var totalTimeReturn = data["duration-return"];
+                    if (totalTimeReturn == undefined) totalTimeReturn = totalTime;
+                    scrollDistance = 1;
+                    var currentTime = $el.data("current-time");
+                    if(currentTime == undefined) currentTime = 0;
                 }
-                if(scrollCurrent<scrollTo) {
-                    if($el.data("sens") == "go") {
-                        currentTime = 1;
-                        $el.data("sens", "back");
+                if (scrollTo == undefined) scrollTo = scrollFrom + scrollDistance;
+                scrollTo = scrollTo | 0;
+                var smoothness = data["smoothness"];
+                if (smoothness == undefined) smoothness = 30;
+                smoothness = smoothness | 0;
+                if (noSmooth || smoothness == 0) smoothness = 1;
+                smoothness = smoothness | 0;
+                var scrollCurrent = scroll;
+                scrollCurrent = Math.max(scrollCurrent, scrollFrom);
+                scrollCurrent = Math.min(scrollCurrent, scrollTo);
+                if(easing) {
+                    if($el.data("sens") == undefined) $el.data("sens", "back");
+                    if(scrollCurrent>scrollFrom) {
+                        if($el.data("sens") == "back") {
+                            currentTime = 1;
+                            $el.data("sens", "go");
+                        }
+                        else {
+                            currentTime++;
+                        }
                     }
-                    else {
-                        currentTime++;
+                    if(scrollCurrent<scrollTo) {
+                        if($el.data("sens") == "go") {
+                            currentTime = 1;
+                            $el.data("sens", "back");
+                        }
+                        else {
+                            currentTime++;
+                        }
                     }
+                    if(noSmooth) currentTime = totalTime;
+                    $el.data("current-time", currentTime);
                 }
-                if(noSmooth) currentTime = totalTime;
-                $el.data("current-time", currentTime);
+                this._properties.map($.proxy(function(prop) {
+                    var to = data[prop];
+                    if (to == undefined) return;
+                    to = to | 0;
+                    var prev = $el.data("_" + prop);
+                    if (prev == undefined) prev = 0;
+                    var next = to * ((scrollCurrent - scrollFrom) / (scrollTo - scrollFrom));
+                    next = Math.floor(next * this.round) / this.round;
+                    var val = prev + (next - prev) / smoothness;
+                    if(easing && currentTime>0 && currentTime<=totalTime) {
+                        var from = 0;
+                        if($el.data("sens") == "back") {
+                            from = to;
+                            to = -to;
+                            easing = easingReturn;
+                            totalTime = totalTimeReturn;
+                        }
+                        val = $.easing[easing](null, currentTime, from, to, totalTime);
+                    }
+                    val = (next > 0 ? Math.ceil : Math.floor)(val * this.round) / this.round;
+                    //if (prev != val) {
+                        if(!properties[prop]) properties[prop] = 0;
+                        properties[prop] += val;
+                        $el.data("_" + prop, properties[prop]);
+                        if(prev != val) applyProperties = true;
+                   // }
+                }, this));
             }
-            var applyProperties = false;
-            this._properties.map($.proxy(function(prop) {
-                var to = data[prop];
-                if (to == undefined) return;
-                to = to | 0;
-                var prev = $el.data("_" + prop);
-                if (prev == undefined) prev = 0;
-                var next = to * ((scrollCurrent - scrollFrom) / (scrollTo - scrollFrom));
-                next = Math.floor(next * this.round) / this.round;
-                var val = prev + (next - prev) / smoothness;
-                if(easing && currentTime>0 && currentTime<=totalTime) {
-                    var from = 0;
-                    if($el.data("sens") == "back") {
-                        from = to;
-                        to = -to;
-                        easing = easingReturn;
-                    }
-                    val = $.easing[easing](null, currentTime, from, to, totalTime);
-                }
-                val = (next > 0 ? Math.ceil : Math.floor)(val * this.round) / this.round;
-                if (prev != val) {
-                    properties[prop] = val;
-                    $el.data("_" + prop, val);
-                    if(prev != val) applyProperties = true;
-                }
-            }, this));
             if (applyProperties) {
                 if (properties["z"] != undefined) {
                     var perspective = data["perspective"];
