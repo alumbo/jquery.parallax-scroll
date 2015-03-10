@@ -67,7 +67,7 @@
 	<script>
 		$(function(){
 			var windowWidth = $(window).width();
-			for(var i=0; i<200; i++) {
+			for(var i=0; i<100; i++) {
 				var top = Math.random()*2200 - 50;
 				var left = Math.random()*(windowWidth+50) - 50;
 				var x = Math.random()*2000-1000;
@@ -76,7 +76,7 @@
 				var rotateZ = Math.random()*600-300;
 				var fromScroll = Math.max(0, top - 200 - Math.random()*800);
 				var distance = 200+Math.random()*100;
-				$("body").append('<div class="star'+((Math.random()>.5)?'1':'2')+'" style="top:' + top + 'px; left:' + left + 'px;" data-parallax=\'{"x":' + x + ',"y":' + y + ',"z":' + z + ',"rotateX":' + rotateX + ',"rotateX":' + rotateY + ',"rotateX":' + rotateZ + ',"from-scroll":' + fromScroll + ',"distance":' + distance + '}\'></div>');
+				$("body").append('<div class="star'+((Math.random()>.5)?'1':'2')+'" style="top:' + top + 'px; left:' + left + 'px;" data-parallax=\'{"x":' + x + ',"y":' + y + ',"z":' + z + ',"rotateZ":' + rotateZ + ',"from-scroll":' + fromScroll + ',"distance":' + distance + '}\'></div>');
 			}
 		});
 	</script>
