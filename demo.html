@@ -94,24 +94,27 @@
 			<a href="https://github.com/alumbo/jquery.parallax-scroll"><img class="github" src="img/GitHub_Logo.png" alt="GitHub"/></a>
 		</header>
 		<ul>
-			<li data-parallax='{"x":750,"from-scroll":50,"distance":0,"smoothness":10}'>1</li>
-			<li data-parallax='{"x":750,"from-scroll":70,"distance":0,"smoothness":20}'>2</li>
-			<li data-parallax='{"x":750,"from-scroll":90,"distance":0}'>3</li>
-			<li data-parallax='{"x":750,"from-scroll":110,"distance":0,"smoothness":40}'>4</li>
+			<li data-parallax='{"x": 650, "from-scroll": 50, "distance": 0, "smoothness": 10}'>1</li>
+			<li data-parallax='{"x": 650, "from-scroll": 70, "distance": 0, "smoothness": 20}'>2</li>
+			<li data-parallax='{"x": 650, "from-scroll": 90, "distance": 0}'>3</li>
+			<li data-parallax='{"x": 650, "from-scroll": 110, "distance": 0, "smoothness": 40}'>4</li>
+			<li data-parallax='{"x": 650, "from-scroll": 120, "easing": "easeOutBack", "easingReturn": "easeInOutBack", "duration": 100}'>5</li>
 		</ul>
-		<ul class="letters">
-			<li data-parallax='{"x":-750,"from-scroll":80,"distance":30}'>A</li>
-			<li data-parallax='{"x":-750,"from-scroll":100,"distance":60}'>B</li>
-			<li data-parallax='{"x":-750,"from-scroll":120,"distance":90}'>C</li>
-			<li data-parallax='{"x":-750,"from-scroll":140,"distance":120}'>D</li>
+		<ul class="letters" data-parallax='{"y": 300, "from-scroll": 645, "easing": "easeOutElastic", "duration": 150}'>
+			<li data-parallax='{"x": -650, "from-scroll": 80, "distance": 30}'>A</li>
+			<li data-parallax='{"x": -650, "from-scroll": 100, "distance": 60}'>B</li>
+			<li data-parallax='{"x": -650, "from-scroll": 120, "distance": 90}'>C</li>
+			<li data-parallax='{"x": -650, "from-scroll": 140, "distance": 120}'>D</li>
+			<li data-parallax='{"x": -650, "from-scroll": 160, "distance": 180}'>E</li>
 		</ul>
 		<article>
-			<img src="img/paris.jpg" alt="Paris" data-parallax='{"y":230}'/>
-			<p>Paris est magique</p>
+			<img src="img/paris.jpg" alt="Paris" data-parallax='{"y": 230}'/>
+			<p>Paris est magique</p>	
 		</article>
-		<div class="yeah"><p data-parallax='{"z":-600}'>Y</p><p data-parallax='{"z":-500}'>e</p><p data-parallax='{"z":-400}'>a</p><p data-parallax='{"z":-300}'>a</p><p data-parallax='{"z":-200}'>a</p><p data-parallax='{"z":-100}'>h</p><p data-parallax='{"rotateX":1000}'>!</p></div>
+		<div class="yeah"><p data-parallax='{"z": -600}'>Y</p><p data-parallax='{"z": -500}'>e</p><p data-parallax='{"z": -400}'>a</p><p data-parallax='{"z": -300}'>a</p><p data-parallax='{"z": -200}'>a</p><p data-parallax='{"z": -100}'>h</p><p data-parallax='{"rotateX": 1000}'>!</p></div>
 	</section>
 	<script src="js/jquery-2.1.3.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
 	<script src="js/jquery.parallax-scroll.js"></script>
 </body>
 </html>

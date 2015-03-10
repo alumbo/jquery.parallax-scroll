@@ -9,12 +9,54 @@
 			background: #000;
 			overflow-x:hidden;
 		}
-		div {
+		.star1 {
 			position: absolute;
 			background: #fff;
 			width: 4px;
 			height: 4px;
 			border-radius: 4px;
+		}
+		.star2 {
+		   position: absolute;
+		   display: block;
+		   color: #fff;
+		   width: 0px;
+		   height: 0px;
+		   border-right:  10px solid transparent;
+		   border-bottom: 7px  solid #fff;
+		   border-left:   10px solid transparent;
+		   transform:         rotate(35deg);
+		   -webkit-transform: rotate(35deg);
+		}
+		.star2:before {
+		   border-bottom: 8px solid #fff;
+		   border-left: 3px solid transparent;
+		   border-right: 3px solid transparent;
+		   position: absolute;
+		   height: 0;
+		   width: 0;
+		   top: -4.5px;
+		   left: -6.5px;
+		   display: block;
+		   content: '';
+		   transform:         rotate(-35deg);
+		   -webkit-transform: rotate(-35deg);
+
+		}
+		.star2:after {
+		   position: absolute;
+		   display: block;
+		   color: #fff;
+		   top: 1px;
+		   left: -10px;
+		   width: 0px;
+		   height: 0px;
+		   border-right: 10px solid transparent;
+		   border-bottom: 7px solid #fff;
+		   border-left: 10px solid transparent;
+		   transform:         rotate(-70deg);
+		   -webkit-transform: rotate(-70deg);
+		   content: '';
 		}
 	</style>
 </head>
@@ -25,15 +67,16 @@
 	<script>
 		$(function(){
 			var windowWidth = $(window).width();
-			for(var i=0; i<100; i++) {
+			for(var i=0; i<200; i++) {
 				var top = Math.random()*2200 - 50;
 				var left = Math.random()*(windowWidth+50) - 50;
 				var x = Math.random()*2000-1000;
 				var y = Math.random()*2000-1000;
-				var z = Math.random()*1000-1000;
+				var z = Math.random()*1500-1000;
+				var rotateZ = Math.random()*600-300;
 				var fromScroll = Math.max(0, top - 200 - Math.random()*800);
 				var distance = 200+Math.random()*100;
-				$("body").append('<div style="top:' + top + 'px; left:' + left + 'px;" data-parallax=\'{"x":' + x + ',"y":' + y + ',"z":' + z + ',"from-scroll":' + fromScroll + ',"distance":' + distance + '}\'></div>');
+				$("body").append('<div class="star'+((Math.random()>.5)?'1':'2')+'" style="top:' + top + 'px; left:' + left + 'px;" data-parallax=\'{"x":' + x + ',"y":' + y + ',"z":' + z + ',"rotateX":' + rotateX + ',"rotateX":' + rotateY + ',"rotateX":' + rotateZ + ',"from-scroll":' + fromScroll + ',"distance":' + distance + '}\'></div>');
 			}
 		});
 	</script>

@@ -56,16 +56,52 @@ var ParallaxScroll = {
             var scrollDistance = data["distance"];
             var scrollTo = data["to-scroll"];
             if (scrollDistance == undefined && scrollTo == undefined) scrollDistance = windowHeight;
-            scrollDistance = Math.max(scrollDistance|0,1);
+            scrollDistance = Math.max(scrollDistance | 0, 1);
+            var easing = data["easing"];
+            var easingReturn = data["easingReturn"];
+            if (easing == undefined || !$.easing|| !$.easing[easing]) easing = null;
+            if (easingReturn == undefined || !$.easing|| !$.easing[easingReturn]) easingReturn = easing;
+            if (easing) {
+                var totalTime = data["duration"];
+                if (totalTime == undefined) totalTime = scrollDistance;
+                totalTime = Math.max(totalTime | 0, 1);
+                scrollDistance = 1;
+                var currentTime = $el.data("current-time");
+                if(currentTime == undefined) currentTime = 0;
+            }
             if (scrollTo == undefined) scrollTo = scrollFrom + scrollDistance;
             scrollTo = scrollTo | 0;
             var smoothness = data["smoothness"];
             if (smoothness == undefined) smoothness = 30;
             smoothness = smoothness | 0;
             if (noSmooth || smoothness == 0) smoothness = 1;
+            smoothness = smoothness | 0;
             var scrollCurrent = scroll;
             scrollCurrent = Math.max(scrollCurrent, scrollFrom);
             scrollCurrent = Math.min(scrollCurrent, scrollTo);
+            if(easing) {
+                if($el.data("sens") == undefined) $el.data("sens", "back");
+                if(scrollCurrent>scrollFrom) {
+                    if($el.data("sens") == "back") {
+                        currentTime = 1;
+                        $el.data("sens", "go");
+                    }
+                    else {
+                        currentTime++;
+                    }
+                }
+                if(scrollCurrent<scrollTo) {
+                    if($el.data("sens") == "go") {
+                        currentTime = 1;
+                        $el.data("sens", "back");
+                    }
+                    else {
+                        currentTime++;
+                    }
+                }
+                if(noSmooth) currentTime = totalTime;
+                $el.data("current-time", currentTime);
+            }
             var applyProperties = false;
             this._properties.map($.proxy(function(prop) {
                 var to = data[prop];
@@ -76,11 +112,20 @@ var ParallaxScroll = {
                 var next = to * ((scrollCurrent - scrollFrom) / (scrollTo - scrollFrom));
                 next = Math.floor(next * this.round) / this.round;
                 var val = prev + (next - prev) / smoothness;
+                if(easing && currentTime>0 && currentTime<=totalTime) {
+                    var from = 0;
+                    if($el.data("sens") == "back") {
+                        from = to;
+                        to = -to;
+                        easing = easingReturn;
+                    }
+                    val = $.easing[easing](null, currentTime, from, to, totalTime);
+                }
                 val = (next > 0 ? Math.ceil : Math.floor)(val * this.round) / this.round;
                 if (prev != val) {
                     properties[prop] = val;
                     $el.data("_" + prop, val);
-                    applyProperties = true;
+                    if(prev != val) applyProperties = true;
                 }
             }, this));
             if (applyProperties) {
