@@ -52,8 +52,13 @@ var ParallaxScroll = {
             }
             var datas = [$el.data("parallax")];
             var iData;
-            for(iData = 2; iData<=10; iData++) {
-                if($el.data("parallax"+iData)) datas.push($el.data("parallax-"+iData));
+            for(iData = 2; ; iData++) {
+                if($el.data("parallax"+iData)) {
+                    datas.push($el.data("parallax-"+iData));
+                }
+                else {
+                    break;
+                }
             }
             var datasLength = datas.length;
             for(iData = 0; iData < datasLength; iData ++) {

@@ -29,14 +29,27 @@ Add the attribute 'data-parallax' to the dom elements you want with a <a href="h
 	<li><em>rotateZ</em>: Z axis rotation (degrees)</li>
 </ul>
 
+<h2>Multiple animations</h2>
+You can now add as much data-parallax attributes to setup multiple animations:<br/>
+- <em>data-parallax</em><br/>
+- <em>data-parallax2</em><br/>
+- <em>data-parallax3</em><br/>
+- <em>data-parallax4</em><br/>
+- <em>data-parallax5</em><br/>
+- <em>data-parallax...</em>
+
 <h2>Examples</h2>
 <p>
 	Move down the image by 230 pixels while vertical scrolling from when it shows up on screen bottom to when it disappears on screen top:<br/>
 	<code>&lt;img src="img/paris.jpg" alt="Paris" data-parallax='{"y" : 230}'/&gt;</code>
 </p>
 <p>
-	Translation to the right by 750 pixels with a lower smoothness effect when vertical scroll position is over 50 pixels:<br/>
-	<code>&lt;li data-parallax='{"x": 750, "from-scroll": 50, "distance": 0, "smoothness": 10}'&gt;1&lt;/li&gt;</code>
+	Translation to the right by 650 pixels with a lower smoothness effect when vertical scroll position is over 50 pixels:<br/>
+	<code>&lt;li data-parallax='{"x": 650, "from-scroll": 50, "distance": 0, "smoothness": 10}'&gt;1&lt;/li&gt;</code>
+</p>
+<p>
+	Translation to the right by 650 pixels when vertical scroll position is over 90 pixels, then translation to the bottom by 500 pixels when vertical scroll position is over 400 pixels during a scroll distance of 60 pixels<br/>
+	<li data-parallax='{"x": 650, "from-scroll": 90, "distance": 0}' data-parallax2='{"y": 500, "from-scroll": 400, "distance": 60}'>3</li>
 </p>
 <p>
 	Rotation by 1000 degrees along the X axis from when the exclamation point shows up to the window height distance scroll position:<br/>
