@@ -30,12 +30,10 @@ Add the attribute 'data-parallax' to the dom elements you want with a <a href="h
 </ul>
 
 <h2>Multiple animations</h2>
-You can now add as much data-parallax attributes to setup multiple animations:<br/>
+You can now increment data-parallax attribute to setup multiple animations:<br/>
 - <em>data-parallax</em><br/>
 - <em>data-parallax2</em><br/>
 - <em>data-parallax3</em><br/>
-- <em>data-parallax4</em><br/>
-- <em>data-parallax5</em><br/>
 - <em>data-parallax...</em>
 
 <h2>Examples</h2>
@@ -49,7 +47,7 @@ You can now add as much data-parallax attributes to setup multiple animations:<b
 </p>
 <p>
 	Translation to the right by 650 pixels when vertical scroll position is over 90 pixels, then translation to the bottom by 500 pixels when vertical scroll position is over 400 pixels during a scroll distance of 60 pixels<br/>
-	<li data-parallax='{"x": 650, "from-scroll": 90, "distance": 0}' data-parallax2='{"y": 500, "from-scroll": 400, "distance": 60}'>3</li>
+	<code>&lt;li data-parallax='{"x": 650, "from-scroll": 90, "distance": 0}' data-parallax2='{"y": 500, "from-scroll": 400, "distance": 60}'&gt;3&lt;/li&gt;</code>
 </p>
 <p>
 	Rotation by 1000 degrees along the X axis from when the exclamation point shows up to the window height distance scroll position:<br/>
