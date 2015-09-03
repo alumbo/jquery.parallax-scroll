@@ -182,4 +182,4 @@ var ParallaxScroll = {
             this._requestAnimationFrame($.proxy(this._onScroll, this, false));
         }
     }
-}
+};
