@@ -1,0 +1,20 @@
+{
+  "name": "jquery-parallax-scroll",
+  "version": "1.0.0",
+  "description": "Smooth parallax animations on vertical page scrolling using requestAnimationFrame and CSS3 3D transitions.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alumbo/jquery.parallax-scroll.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alumbo/jquery.parallax-scroll/issues"
+  },
+  "homepage": "https://github.com/alumbo/jquery.parallax-scroll#readme",
+  "keywords": [
+	"jquery",
+    "scroll",
+    "parallax",
+    "effect"
+  ]
+}
