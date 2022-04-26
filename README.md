@@ -60,6 +60,3 @@ You can now increment data-parallax attribute to setup multiple animations:<br/>
 	Rotation by 1000 degrees along the X axis from when the exclamation point shows up to the window height distance scroll position:<br/>
 	<code>&lt;p data-parallax='{"rotateX":1000}'&gt;!&lt;/p&gt;</code>
 </p>
-
-<h3><a href="http://free.matthieu.com/jquery.parallax-scroll/demo.html" target="_blank">Demo</a></h3>
-<p><a href="http://free.matthieu.com/jquery.parallax-scroll/stars.html" target="_blank">Bonus test with 100 stars</a></p>
