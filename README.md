@@ -1,4 +1,4 @@
-# jquery.parallax-scroll
+# jquery.parallax-scroll ⛔️ DEPRECATED
 Smooth parallax animations on vertical page scrolling using requestAnimationFrame and CSS3 3D transitions.
 
 <h2>Browser Support</h2>
